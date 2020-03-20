@@ -17,4 +17,4 @@ col = db["march"]
 
 march_data.reset_index(inplace=True)  # Reset Index
 data_dict = march_data.to_dict("records")  # Convert to dictionary
-col.insert_one({"index": "WHO", "data": data_dict})  # inesrt into DB
+col.insert_one({"index": "WHO", "data": data_dict})  # insert into DB
