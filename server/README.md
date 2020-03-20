@@ -1,6 +1,6 @@
-# COVID-19 Dashboard
+# COVID-19 Server
 
-## Getting Started
+## Goals
 
 Use Python to wrangle csse_covid_19_daily_reports
 
@@ -16,9 +16,9 @@ React app
 
 ## Server
 
-Node server
+Node server or Apollo GraphQL Server?
 
-## Wrangler
+## Wrangling Tools
 
 Anaconda
 Pandas
