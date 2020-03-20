@@ -22,4 +22,4 @@ Node server
 
 Anaconda
 Pandas
-MongoDB
+PyMongo
