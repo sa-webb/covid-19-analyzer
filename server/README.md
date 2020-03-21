@@ -1,5 +1,7 @@
 # COVID-19 Server
 
+## Getting Started
+
 ## Goals
 
 Use Python to wrangle csse_covid_19_daily_reports
