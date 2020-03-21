@@ -20,4 +20,4 @@ const getAll = () => {
   return collection.findOne({})
 }
 
-module.exports = { init, insertItem, getItems, updateQuantity, getAll }
+module.exports = { init, getAll, getAllArray }
