@@ -1,14 +1,16 @@
 # covid-19-analyzer
 
-Project to pass time during social distantancing.
+Perform data analysis on covid data and display the results via web app.
 
-## Goals
+## Purpose
 
-Explore csv data using Python.
+Wrangle csse_covid_19_daily_reports data using Python.
 
-Find and insert results to be exposed to an API
+Insert results into MongoDB using PyMongo.
 
-Visualize the results with a React app and web charts.
+Host and make results available through Express API.
+
+Display Results using a React application and chart libraries.
 
 ### Server
 
@@ -16,4 +18,4 @@ Shared MongoDB database between python tools and express API.
 
 ### Client
 
-React client that uses visualizatoin libraries to visualize results.
+React client that uses visualization libraries to visualize results.
