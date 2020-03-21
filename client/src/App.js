@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import SingleApiHook from './components/SingleApiHook';
+import ReuseableHook from './components/ReuseableHook';
+import Page404 from './pages/Page404';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={SingleApiHook} />
+        <Route exact path="/reuse" component={ReuseableHook} />
+        <Route component={Page404} />
+      </Switch>
+    </Router>
   );
 }
 
