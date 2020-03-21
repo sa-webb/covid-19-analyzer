@@ -2,14 +2,18 @@
 
 Project to pass time during social distantancing.
 
-## Server
+## Goals
 
-Wrangle csv data using Python.
+Explore csv data using Python.
 
-Insert results into MongoDB.
+Find and insert results to be exposed to an API
 
-Server exposes the results via API.
+Visualize the results with a React app and web charts.
 
-## Client
+### Server
 
-React client that uses Recharts and Material-UI to visualize results.
+Shared MongoDB database between python tools and express API.
+
+### Client
+
+React client that uses visualizatoin libraries to visualize results.
