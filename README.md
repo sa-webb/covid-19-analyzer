@@ -2,20 +2,20 @@
 
 Perform data analysis on covid data and display the results via web app.
 
-## Purpose
+## Apps
 
-Wrangle csse_covid_19_daily_reports data using Python.
+Client - React web application to share and visualize the results.
 
-Insert results into MongoDB using PyMongo.
+Python - Anaconda environment for data analysis and PyMongo to store results used by the server.
 
-Host and make results available through Express API.
+Server - API to expose results from database to client.
 
-Display Results using a React application and chart libraries.
+## Technologies Used
 
-### Server
+Client: Create React App with Material-UI, Axios, and Recharts.
 
-Shared MongoDB database between python tools and express API.
+Python: Anaconda, Pandas, PyMongo
 
-### Client
+Server: Node, Express, MongoDB
 
-React client that uses visualization libraries to visualize results.
+Development Tools: Anaconda-Navigator, Postman, MongoDB Compass..
