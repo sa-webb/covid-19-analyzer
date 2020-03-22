@@ -15,9 +15,13 @@ const getAllArray = () => {
   return collection.find({}).toArray();
 };
 
-const getAll = () => {
+const getMarch = () => {
   const collection = db.collection('march');
   return collection.findOne({});
 };
+const getAll = () => {
+  const collection = db.collection('WHO');
+  return collection.findOne({});
+};
 
-module.exports = { init, getAll, getAllArray };
+module.exports = { init, getAll, getAllArray, getMarch };

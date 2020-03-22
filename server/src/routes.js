@@ -1,9 +1,20 @@
 const express = require('express')
-const { getItems, getAll } = require('./db')
+const { getItems, getAll, getMarch } = require('./db')
 
 const router = express.Router()
 
 router.get('/data', (req, res) => {
+  getMarch()
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(500).end()
+    })
+})
+
+router.get('/global', (req, res) => {
   getAll()
     .then((data) => {
       res.json(data)
@@ -13,6 +24,8 @@ router.get('/data', (req, res) => {
       res.status(500).end()
     })
 })
+
+
 
 router.get('/arraydata', (req, res) => {
   getItems()
