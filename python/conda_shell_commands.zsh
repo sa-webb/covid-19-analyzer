@@ -9,3 +9,6 @@ conda env export > environment.yml
 
 # Deactivate environment
 deactivate <env_name>
+
+# Execute file
+pythong <file_name>
