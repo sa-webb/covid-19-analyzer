@@ -1,46 +1,75 @@
-const express = require('express')
-const { getItems, getAll, getMarch } = require('./db')
+const express = require('express');
+const { getItems, getAllWHO, getMarchWHO, getAllConfirmedCSSE, getUSConfirmedCSSE, usConfirmedTotal } = require('./db');
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/data', (req, res) => {
-  getMarch()
-    .then((data) => {
-      res.json(data)
+router.get('/who-march', (req, res) => {
+  getMarchWHO()
+    .then(data => {
+      res.json(data);
     })
-    .catch((err) => {
-      console.log(err)
-      res.status(500).end()
-    })
-})
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
 
-router.get('/global', (req, res) => {
-  getAll()
-    .then((data) => {
-      res.json(data)
+router.get('/who-global', (req, res) => {
+  getAllWHO()
+    .then(data => {
+      res.json(data);
     })
-    .catch((err) => {
-      console.log(err)
-      res.status(500).end()
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
+router.get('/csse-confirmed', (req, res) => {
+  getAllConfirmedCSSE()
+    .then(data => {
+      res.json(data);
     })
-})
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
+router.get('/us-confirmed', (req, res) => {
+  getUSConfirmedCSSE()
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
 
-
+router.get('/aggtest', async (req, res) => {
+  await usConfirmedTotal()
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
 
 router.get('/arraydata', (req, res) => {
   getItems()
-    .then((items) => {
-      items = items.map((item) => ({
+    .then(items => {
+      items = items.map(item => ({
         id: item._id,
         name: item.name,
         quantity: item.quantity
-      }))
-      res.json(items)
+      }));
+      res.json(items);
     })
-    .catch((err) => {
-      console.log(err)
-      res.status(500).end()
-    })
-})
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
 
-module.exports = router
+module.exports = router;
