@@ -2,6 +2,14 @@
 
 Perform data analysis on covid data and display the results via web app.
 
+## Gettings Started
+
+Refreshing the data
+
+cd python/data/COVID19
+
+`git pull`
+
 ## Apps
 
 Client - React web application to share and visualize the results.
