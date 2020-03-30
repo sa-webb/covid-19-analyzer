@@ -4,6 +4,9 @@ conda info --envs
 # Activate environment
 conda activate <env_name>
 
+# List environment packages
+conda list
+
 # Export environment details to YAML file.
 conda env export > environment.yml
 
@@ -11,4 +14,4 @@ conda env export > environment.yml
 deactivate <env_name>
 
 # Execute file
-pythong <file_name>
+python <file_name>
