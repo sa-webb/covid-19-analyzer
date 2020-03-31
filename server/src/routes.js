@@ -1,5 +1,5 @@
 const express = require('express');
-const { getItems, getAllWHO, getMarchWHO, getAllConfirmedCSSE, getUSConfirmedCSSE, usConfirmedTotal } = require('./db');
+const { getItems, getAllWHO, getMarchWHO, getAllConfirmedCSSE, getUSConfirmedCSSE, usConfirmedTotal, usGrowthCurve } = require('./db');
 
 const router = express.Router();
 
@@ -37,7 +37,7 @@ router.get('/who-global', (req, res) => {
 router.get('/csse-confirmed', (req, res) => {
   getAllConfirmedCSSE()
     .then(data => {
-      res.json(data);
+      res.json(data.data);
     })
     .catch(err => {
       console.log(err);
@@ -55,8 +55,18 @@ router.get('/us-confirmed', (req, res) => {
     });
 });
 
-router.get('/aggtest', async (req, res) => {
+router.get('/us-agg-total', async (req, res) => {
   await usConfirmedTotal()
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
+router.get('/us-growth-curve', async (req, res) => {
+  await usGrowthCurve()
     .then(data => {
       res.json(data);
     })

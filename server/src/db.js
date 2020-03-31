@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const options = require('../config/index.js');
 
-const { us_total_confirmed } = require('./aggregations')
+const { us_total_confirmed, us_growth_curve } = require('./aggregations')
 
 let db;
 
@@ -36,6 +36,12 @@ const usConfirmedTotal = async (req, res) => {
   const collection = db.collection('csse');
   return collection
     .aggregate(us_total_confirmed)
+    .toArray();
+};
+const usGrowthCurve = async (req, res) => {
+  const collection = db.collection('csse');
+  return collection
+    .aggregate(us_growth_curve)
     .toArray();
 };
 
@@ -85,5 +91,6 @@ module.exports = {
   getMarchWHO,
   getAllConfirmedCSSE,
   getUSConfirmedCSSE,
-  usConfirmedTotal
+  usConfirmedTotal,
+  usGrowthCurve
 };

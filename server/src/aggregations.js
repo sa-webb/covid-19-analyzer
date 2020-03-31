@@ -24,6 +24,34 @@ const us_total_confirmed = [
   }
 ];
 
+const us_growth_curve = [
+  {
+    $match: {
+      index: 'csse-all-confirmed'
+    }
+  },
+  {
+    $unwind: {
+      path: '$data'
+    }
+  },
+  {
+    $match: {
+      'data.country_region': 'US'
+    }
+  },
+  {
+    $project: {
+      'data.index': false,
+      'data.country_region': false,
+      'data.province_state': false,
+      'data.Lat': false,
+      'data.Long': false
+    }
+  }
+];
+
 module.exports = {
-  us_total_confirmed
+  us_total_confirmed,
+  us_growth_curve
 };
