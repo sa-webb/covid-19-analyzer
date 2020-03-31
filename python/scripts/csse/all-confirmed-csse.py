@@ -7,12 +7,12 @@ load_dotenv('.env')
 print(os.getenv('MONGO_URI'))
 
 df = pd.read_csv(
-    './data/COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv')
+    '../../data/COVID-19/csse_covid_19_data/csse_covid_19_time_seriestime_series_covid19_confirmed_global.csv')
 
 print(df)
 
 df_cleansed = df.rename(
-    columns={'Province/States': 'province_states', 'Country/Region': 'country_region'})
+    columns={'Province/State': 'province_state', 'Country/Region': 'country_region'})
 print(df_cleansed)
 
 client = MongoClient(os.getenv('MONGO_URI'))
