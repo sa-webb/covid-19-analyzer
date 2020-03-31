@@ -13,6 +13,16 @@ router.get('/who-march', (req, res) => {
       res.status(500).end();
     });
 });
+router.get('/data', async (req, res) => {
+  await getAllConfirmedCSSE()
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
 
 router.get('/who-global', (req, res) => {
   getAllWHO()
