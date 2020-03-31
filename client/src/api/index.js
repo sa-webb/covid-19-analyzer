@@ -1,14 +1,15 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const api = axios.create({
-    baseURL:'http://localhost:5000'
-})
+  baseURL: 'http://localhost:5000'
+});
 
 export const getAllData = payload => api.get(`/data`);
-
+export const getUsGrowthCurve = payload => api.get(`/us-growth-curve`);
 
 const apis = {
-    getAllData
-}
+  getAllData,
+  getUsGrowthCurve
+};
 
-export default apis
+export default apis;

@@ -48,6 +48,13 @@ const us_growth_curve = [
       'data.Lat': false,
       'data.Long': false
     }
+  },
+  {
+    $project: {
+      values: {
+        $objectToArray: '$data'
+      }
+    }
   }
 ];
 
