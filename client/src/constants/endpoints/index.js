@@ -1,1 +1,1 @@
-export const TOTAL_DATA = '/data/`'
+export const TOTAL_DATA = 'http://localhost:5000/data/'

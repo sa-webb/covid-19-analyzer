@@ -1,8 +1,9 @@
 import React from 'react';
 import { useFetch } from '../hooks/index'
+import {TOTAL_DATA} from '../constants/endpoints/'
 
 export default function ReuseableHook() {
-    const res = useFetch(`http://localhost:5000/data/`, {});
+    const res = useFetch(TOTAL_DATA, {});
   
     if (!res.response) {
       return <div>Loading...</div>;
