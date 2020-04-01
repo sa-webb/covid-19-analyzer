@@ -93,18 +93,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function createData(k, v) {
-  return { k, v };
-}
-
-const results = [
-  createData('1/21/2020', 282),
-  createData('1/22/2020', 314),
-  createData('1/23/2020', 581),
-  createData('1/24/2020', 846),
-  createData('1/25/2020', 1320)
-];
-
 const Main = () => {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -122,7 +110,7 @@ const Main = () => {
       if (cancel) {
         return;
       }
-      setData1(data1);
+      setData1(data1.data[0].values);
       console.log(data1.data[0].values);
 
       const data2 = await axios(
@@ -131,7 +119,7 @@ const Main = () => {
       if (cancel) {
         return;
       }
-      setData2(data2);
+      setData2(data2.data[0].values);
       console.log(data2.data[0].values);
 
       const data3 = await axios(
@@ -140,7 +128,7 @@ const Main = () => {
       if (cancel) {
         return;
       }
-      setData3(data3);
+      setData3(data3.data[0].values);
       console.log(data3.data[0].values);
     };
     runEffect();
@@ -160,22 +148,19 @@ const Main = () => {
         <div className={classes.appBarSpacer} />
         <Container maxWidth='lg' className={classes.container}>
           <Grid container spacing={3}>
-            {/* Chart */}
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart data={results} />
+                <Chart data={data1} />
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart data={results} />
+                <Chart data={data2} />
               </Paper>
             </Grid>
-            {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart data={results} />
+                <Chart data={data3} />
               </Paper>
             </Grid>
           </Grid>
