@@ -2,14 +2,6 @@
 
 Perform data analysis on covid data and display the results via web app.
 
-## Gettings Started
-
-Refreshing the data
-
-cd python/data/COVID19
-
-`git pull`
-
 ## Apps
 
 Client - React web application to share and visualize the results.
@@ -20,10 +12,31 @@ Server - API to expose results from database to client.
 
 ## Technologies Used
 
-Client: Create React App with Material-UI, Axios, and Recharts.
+Client: **Create React App** with **Material-UI**, **Axios**, and **Recharts**.
 
-Python: Anaconda, Pandas, PyMongo
+Python: **Anaconda** environment, **Pandas** data analysis and manipulation tool, **PyMongo** MongoDB to store results.
 
-Server: Node, Express, MongoDB
+Server: **Node**, **Express**, **MongoDB**
 
-Development Tools: Anaconda-Navigator, Postman, MongoDB Compass..
+Development Tools: **Anaconda-Navigator**, **Postman**, **MongoDB Compass**
+
+## Environment Requirements
+
+1. Anaconda
+2. MongoDB
+3. Node
+4. React
+
+## Gettings Started
+
+1. Update the data from the official repository.
+
+cd python/data/COVID19
+
+`git pull`
+
+2. Cleanse and Insert the updated data using Python Scripts
+
+`python <script.py>`
+
+3. Data is now available for server to deliver to client
