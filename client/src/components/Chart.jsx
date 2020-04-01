@@ -13,7 +13,6 @@ import {
 
 function Chart(props) {
   const theme = useTheme();
-  console.log(props.data)
   return (
     <>
       <ResponsiveContainer>
