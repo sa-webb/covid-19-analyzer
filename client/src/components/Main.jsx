@@ -150,17 +150,17 @@ const Main = () => {
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart data={data1} />
+                <Chart title="Confirmed Cases" data={data1} />
               </Paper>
             </Grid>
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart data={data2} />
+                <Chart title="Recovered Cases" data={data2} />
               </Paper>
             </Grid>
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart data={data3} />
+                <Chart title="Deaths" data={data3} />
               </Paper>
             </Grid>
           </Grid>

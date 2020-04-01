@@ -32,7 +32,7 @@ function Chart(props) {
               position='left'
               style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
             >
-              Confirmed Cases
+              {props.title}
             </Label>
           </YAxis>
           {/* <ReferenceLine y={98000} label='Max' stroke='red' /> */}
