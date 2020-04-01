@@ -4,6 +4,9 @@ const { init } = require('./db')
 const routes = require('./routes')
 const cors = require('cors');
 const logger = require('morgan');
+const dotenv = require('dotenv');
+dotenv.config();
+
 
 const app = express()
 app.use(function (req, res, next) {
@@ -31,5 +34,5 @@ app.use(logger('dev'));
 
 init().then(() => {
   console.log('starting server on port 5000')
-  app.listen(5000)
+  app.listen(process.env.PORT || 5000)
 })
