@@ -7,8 +7,7 @@ import {
   XAxis,
   YAxis,
   Label,
-  ResponsiveContainer,
-  // ReferenceLine
+  ResponsiveContainer
 } from 'recharts';
 
 function Chart(props) {
