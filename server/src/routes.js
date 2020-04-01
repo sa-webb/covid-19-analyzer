@@ -1,59 +1,12 @@
 const express = require('express');
-const { getItems, getAllWHO, getMarchWHO, getAllConfirmedCSSE, getUSConfirmedCSSE, usConfirmedTotal, usGrowthCurve } = require('./db');
+const {
+  usConfirmedTotal,
+  usConfirmedGrowthCurve,
+  usRecoveredGrowthCurve,
+  usDeathsGrowthCurve
+} = require('./db');
 
 const router = express.Router();
-
-router.get('/who-march', (req, res) => {
-  getMarchWHO()
-    .then(data => {
-      res.json(data);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).end();
-    });
-});
-router.get('/data', async (req, res) => {
-  await getAllConfirmedCSSE()
-    .then(data => {
-      res.json(data);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).end();
-    });
-});
-
-router.get('/who-global', (req, res) => {
-  getAllWHO()
-    .then(data => {
-      res.json(data);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).end();
-    });
-});
-router.get('/csse-confirmed', (req, res) => {
-  getAllConfirmedCSSE()
-    .then(data => {
-      res.json(data.data);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).end();
-    });
-});
-router.get('/us-confirmed', (req, res) => {
-  getUSConfirmedCSSE()
-    .then(data => {
-      res.json(data);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).end();
-    });
-});
 
 router.get('/us-agg-total', async (req, res) => {
   await usConfirmedTotal()
@@ -65,8 +18,8 @@ router.get('/us-agg-total', async (req, res) => {
       res.status(500).end();
     });
 });
-router.get('/us-growth-curve', async (req, res) => {
-  await usGrowthCurve()
+router.get('/us-confirmed-growth-curve', async (req, res) => {
+  await usConfirmedGrowthCurve()
     .then(data => {
       res.json(data);
     })
@@ -76,15 +29,20 @@ router.get('/us-growth-curve', async (req, res) => {
     });
 });
 
-router.get('/arraydata', (req, res) => {
-  getItems()
-    .then(items => {
-      items = items.map(item => ({
-        id: item._id,
-        name: item.name,
-        quantity: item.quantity
-      }));
-      res.json(items);
+router.get('/us-recovered-growth-curve', async (req, res) => {
+  await usRecoveredGrowthCurve()
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).end();
+    });
+});
+router.get('/us-deaths-growth-curve', async (req, res) => {
+  await usDeathsGrowthCurve()
+    .then(data => {
+      res.json(data);
     })
     .catch(err => {
       console.log(err);
