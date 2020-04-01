@@ -2,26 +2,15 @@
 
 ## Getting Started
 
-## Goals
+Rename `.env.example` to `.env` and insert the following. **Insert results using PyMongo first!**
 
-Use Python to wrangle csse_covid_19_daily_reports
+1. PORT=<port> The port for the server to run on (5000 is the default)
+2. MONGO='<uri_string>' The MongoDB connection URI (localhost or Mongo Atlas)
+3. DB='<db_name>' The name of the database where the results will be stored
 
-Insert results into MongoDB.
+### Creating new endpoints
 
-Make results available through API.
-
-Display Results using a React application and chart library.
-
-## Client
-
-React app
-
-## Server
-
-Node server or Apollo GraphQL Server?
-
-## Wrangling Tools
-
-Anaconda
-Pandas
-PyMongo
+1. Add a new DB operation in `db.js`
+2. Decouple the aggregation operation (if used) into `aggregations.js`
+3. Create an endpoint to expose the DB op to an API in `routes.js`
+4. Test the new route using Postman
