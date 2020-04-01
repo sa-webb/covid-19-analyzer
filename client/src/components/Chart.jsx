@@ -35,7 +35,6 @@ function Chart(props) {
               {props.title}
             </Label>
           </YAxis>
-          {/* <ReferenceLine y={98000} label='Max' stroke='red' /> */}
           <Line
             type='monotone'
             dataKey='v'
