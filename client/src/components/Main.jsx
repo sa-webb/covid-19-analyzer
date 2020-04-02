@@ -54,13 +54,13 @@ const Main = () => {
       }
       setConfirmed(confirmed.data[0].values);
 
-      const recovered = await axios(ENDPOINTS.US_RECOVERED);
+      const recovered = await api.get(ENDPOINTS.US_RECOVERED);
       if (cancel) {
         return;
       }
       setRecovered(recovered.data[0].values);
 
-      const deaths = await axios(ENDPOINTS.US_DEATHS);
+      const deaths = await api.get(ENDPOINTS.US_DEATHS);
       if (cancel) {
         return;
       }
