@@ -9,6 +9,13 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import dotenv from 'dotenv'
+import * as ENDPOINTS from '../constants/index';
+
+dotenv.config()
+const api = axios.create({
+  baseURL: process.env.BASE_URL
+});
 
 const useStyles = makeStyles(theme => ({
   appBarSpacer: theme.mixins.toolbar,
@@ -36,38 +43,38 @@ const Main = () => {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  const [data1, setData1] = useState();
-  const [data2, setData2] = useState();
-  const [data3, setData3] = useState();
+  const [confirmed, setConfirmed] = useState();
+  const [recovered, setRecovered] = useState();
+  const [deaths, setDeaths] = useState();
   useEffect(() => {
     let cancel = false;
 
     const runEffect = async () => {
-      const data1 = await axios(
-        'http://localhost:5000/us-confirmed-growth-curve/'
+      const confirmed = await api.get(
+        ENDPOINTS.US_CONFIRMED
       );
       if (cancel) {
         return;
       }
-      setData1(data1.data[0].values);
+      setConfirmed(confirmed.data[0].values);
       console.log(data1.data[0].values);
 
-      const data2 = await axios(
-        'http://localhost:5000/us-recovered-growth-curve/'
+      const recovered = await api.get(
+        ENDPOINTS.US_RECOVERED
       );
       if (cancel) {
         return;
       }
-      setData2(data2.data[0].values);
-      console.log(data2.data[0].values);
+      setRecovered(data2.data[0].values);
+      console.log(recovered.data[0].values);
 
-      const data3 = await axios(
-        'http://localhost:5000/us-deaths-growth-curve/'
+      const data3 = await api.get(
+        ENDPOINTS.US_DEATHS
       );
       if (cancel) {
         return;
       }
-      setData3(data3.data[0].values);
+      setDeaths(deaths.data[0].values);
       console.log(data3.data[0].values);
     };
     runEffect();
@@ -89,17 +96,17 @@ const Main = () => {
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart title="Confirmed Cases" data={data1} />
+                <Chart title='Confirmed Cases' data={confirmed} />
               </Paper>
             </Grid>
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart title="Recovered Cases" data={data2} />
+                <Chart title='Recovered Cases' data={recovered} />
               </Paper>
             </Grid>
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-                <Chart title="Deaths" data={data3} />
+                <Chart title='Deaths' data={deaths} />
               </Paper>
             </Grid>
           </Grid>
