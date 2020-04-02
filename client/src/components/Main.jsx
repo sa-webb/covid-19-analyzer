@@ -9,12 +9,10 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import dotenv from 'dotenv'
 import * as ENDPOINTS from '../constants/index';
 
-dotenv.config()
 const api = axios.create({
-  baseURL: process.env.BASE_URL
+  baseURL: process.env.REACT_APP_URL
 });
 
 const useStyles = makeStyles(theme => ({
@@ -50,32 +48,23 @@ const Main = () => {
     let cancel = false;
 
     const runEffect = async () => {
-      const confirmed = await api.get(
-        ENDPOINTS.US_CONFIRMED
-      );
+      const confirmed = await api.get(ENDPOINTS.US_CONFIRMED);
       if (cancel) {
         return;
       }
       setConfirmed(confirmed.data[0].values);
-      console.log(data1.data[0].values);
 
-      const recovered = await api.get(
-        ENDPOINTS.US_RECOVERED
-      );
+      const recovered = await axios(ENDPOINTS.US_RECOVERED);
       if (cancel) {
         return;
       }
-      setRecovered(data2.data[0].values);
-      console.log(recovered.data[0].values);
+      setRecovered(recovered.data[0].values);
 
-      const data3 = await api.get(
-        ENDPOINTS.US_DEATHS
-      );
+      const deaths = await axios(ENDPOINTS.US_DEATHS);
       if (cancel) {
         return;
       }
       setDeaths(deaths.data[0].values);
-      console.log(data3.data[0].values);
     };
     runEffect();
 
