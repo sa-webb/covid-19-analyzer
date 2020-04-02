@@ -4,11 +4,11 @@ Perform data analysis on covid data and display the results via web app.
 
 ## Apps
 
-Client - React web application to share and visualize the results.
+Client - **React web application** to share and visualize the results.
 
-Python - Anaconda environment for data analysis and PyMongo to store results used by the server.
+Python - **Data analysis environment** using Anaconda and PyMongo.
 
-Server - API to expose results from database to client.
+Server - **Express API** that hosts the results for the client.
 
 ## Technologies Used
 
