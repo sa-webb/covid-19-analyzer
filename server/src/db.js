@@ -11,6 +11,7 @@ const {
 } = require('./aggregations');
 
 let db;
+let csse = 'csse'
 
 const init = () =>
   MongoClient.connect(process.env.MONGO, options).then(client => {
@@ -18,19 +19,19 @@ const init = () =>
   });
 
 const usConfirmedTotal = async (req, res) => {
-  const collection = db.collection('csse');
+  const collection = db.collection(csse);
   return collection.aggregate(us_total_confirmed).toArray();
 };
 const usConfirmedGrowthCurve = async (req, res) => {
-  const collection = db.collection('csse');
+  const collection = db.collection(csse);
   return collection.aggregate(us_confirmed_growth_curve).toArray();
 };
 const usRecoveredGrowthCurve = async (req, res) => {
-  const collection = db.collection('csse');
+  const collection = db.collection(csse);
   return collection.aggregate(us_recovered_growth_curve).toArray();
 };
 const usDeathsGrowthCurve = async (req, res) => {
-  const collection = db.collection('csse');
+  const collection = db.collection(csse);
   return collection.aggregate(us_deaths_growth_curve).toArray();
 };
 
