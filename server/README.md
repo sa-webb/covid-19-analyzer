@@ -1,5 +1,7 @@
 # COVID-19 Server
 
+Express server to provide data to the client.
+
 ## Getting Started
 
 Remember to **insert results using PyMongo first!**
@@ -12,7 +14,7 @@ Rename `.env.example` to `.env` and insert the following.
 2. MONGO='<uri_string>' The MongoDB connection URI (localhost or Mongo Atlas)
 3. DB='<db_name>' The name of the database where the results will be stored
 
-### Creating new endpoints
+### Workflow
 
 1. Add a new DB operation in `db.js`
 2. Decouple the aggregation operation (if used) into `aggregations.js`
