@@ -20,6 +20,8 @@ Server: **Node**, **Express**, **MongoDB**
 
 Development Tools: **Anaconda-Navigator**, **Postman**, **MongoDB Compass**
 
+Package managers: **Yarn**, **NPM**
+
 ## Environment Requirements
 
 1. Anaconda
