@@ -29,14 +29,14 @@ Development Tools: **Anaconda-Navigator**, **Postman**, **MongoDB Compass**
 
 ## Gettings Started
 
-1. Update the data from the official repository.
+### Updating the data from the official repository
 
 cd python/data/COVID19
 
 `git pull`
 
-2. Cleanse and Insert the updated data using Python Scripts
+1. Populate python `.env` and server `.env` with URI and database name.
 
-`python <script.py>`
+2. Execute `./app.zsh` to cleanse and insert the updated data into MongoDB using Python Scripts
 
-3. Data is now available for server to deliver to client
+3. Explore data with MongoDB Compass
