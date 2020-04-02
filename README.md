@@ -35,8 +35,10 @@ cd python/data/COVID19
 
 `git pull`
 
+### DB Config & Population
+
 1. Populate python `.env` and server `.env` with URI and database name.
 
-2. Execute `./app.zsh` to cleanse and insert the updated data into MongoDB using Python Scripts
+2. Execute `./app.zsh` to chain the Python Scripts for data cleansing and insertion.
 
 3. Explore data with MongoDB Compass
