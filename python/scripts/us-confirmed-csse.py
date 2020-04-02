@@ -7,6 +7,6 @@ load_dotenv('.env')
 print(os.getenv('MONGO_URI'))
 
 df = pd.read_csv(
-    './data/COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv')
+    './data/COVID-19/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv')
 
 print(df)

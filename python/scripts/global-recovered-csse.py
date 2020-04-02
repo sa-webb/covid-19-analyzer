@@ -12,14 +12,14 @@ df = pd.read_csv(
 
 df_cleansed = df.rename(columns={'Province/States': 'province_states', 'Country/Region': 'country_region'})
 
-# print(df_cleansed)
+print(df_cleansed)
 
-client = MongoClient(os.getenv('MONGO_URI'))
-db = client[os.getenv('DB')]
-col = db["csse"]
+# client = MongoClient(os.getenv('MONGO_URI'))
+# db = client[os.getenv('DB')]
+# col = db["csse"]
 
-df_cleansed.reset_index(inplace=True)  # Reset Index
-data_dict = df_cleansed.to_dict("records")  # Convert to dictionary
-col.insert_one({"index": "csse-all", "data": data_dict})  # insert into DB
+# df_cleansed.reset_index(inplace=True)  # Reset Index
+# data_dict = df_cleansed.to_dict("records")  # Convert to dictionary
+# col.insert_one({"index": "csse-all", "data": data_dict})  # insert into DB
 
-print('success')
+# print('success')
