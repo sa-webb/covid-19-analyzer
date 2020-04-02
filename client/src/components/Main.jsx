@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import * as ENDPOINTS from '../constants/index';
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_URL
+  baseURL: process.env.REACT_APP_API_URL
 });
 
 const useStyles = makeStyles(theme => ({

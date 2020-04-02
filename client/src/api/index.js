@@ -4,7 +4,7 @@ import * as ENDPOINTS from '../constants/index';
 dotenv.config()
 
 const api = axios.create({
-  baseURL: process.env.BASE_URL
+  baseURL: process.env.REACT_APP_API_URL
 });
 
 export const usConfirmed = payload => api.get(ENDPOINTS.US_CONFIRMED);
