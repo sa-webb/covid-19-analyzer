@@ -1,28 +1,33 @@
 import axios from 'axios';
+import dotenv from 'dotenv'
+import * as ENDPOINTS from '../constants/index';
+dotenv.config()
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: process.env.BASE_URL
 });
 
-export const getAllData = payload => api.get(`/data`);
-export const getUsGrowthCurve = payload => api.get(`/us-growth-curve`);
+export const usConfirmed = payload => api.get(ENDPOINTS.US_CONFIRMED);
+export const usRecovered = payload => api.get(ENDPOINTS.US_RECOVERED);
+export const usDeaths = payload => api.get(ENDPOINTS.US_DEATHS);
 
-export const getCSSE = () => {
-  const promise1 = payload => api.get(`/data`)
-  const promise2 = payload => api.get(`/us-growth-rate`)
+export const getAllUs = () => {
   try {
-    Promise.all([promise1, promise2]).then(function(values) {
+    Promise.all([usConfirmed, usRecovered, usDeaths]).then(function(values) {
       console.log(values[0].data[0].values);
       console.log(values[1].data.data);
+      console.log(values[2].data.data);
     });
   } catch (error) {
-    alert(error)
+    alert(error);
   }
-}
+};
 
 const apis = {
-  getAllData,
-  getUsGrowthCurve
+  usConfirmed,
+  usRecovered,
+  usDeaths,
+  getAllUs
 };
 
 export default apis;
