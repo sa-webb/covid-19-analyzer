@@ -1,1 +1,1 @@
-# Explore the data, then refactor for automation for updates.
+# Explore the data, then refactor to automated version for updates.
