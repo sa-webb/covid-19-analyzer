@@ -1,10 +1,11 @@
 name: flask-mongo
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - blas=1.0=mkl
   - ca-certificates=2020.1.1=0
-  - certifi=2019.11.28=py38_0
+  - certifi=2019.11.28=py38_1
   - click=7.1.1=py_0
   - flask=1.1.1=py_0
   - intel-openmp=2019.4=233
@@ -24,11 +25,13 @@ dependencies:
   - numpy=1.18.1=py38h7241aed_0
   - numpy-base=1.18.1=py38h6575580_1
   - openssl=1.1.1e=h1de35cc_0
-  - pandas=1.0.2=py38h6c726b0_0
+  - pandas=1.0.3=py38h6c726b0_0
   - pip=20.0.2=py38_1
   - pymongo=3.9.0=py38h0a44026_0
   - python=3.8.1=h359304d_1
   - python-dateutil=2.8.1=py_0
+  - python-dotenv=0.12.0=py_0
+  - python_abi=3.8=1_cp38
   - pytz=2019.3=py_0
   - readline=7.0=h1de35cc_5
   - setuptools=46.0.0=py38_0
