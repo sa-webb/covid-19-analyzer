@@ -1,4 +1,5 @@
 import os
+import datetime
 import pandas as pd
 from dotenv import load_dotenv
 from pymongo import MongoClient
@@ -21,6 +22,12 @@ col = db["csse"]
 
 df_cleansed.reset_index(inplace=True)  # Reset Index
 data_dict = df_cleansed.to_dict("records")  # Convert to dictionary
-col.insert_one({"index": "csse-all-confirmed", "current_date": "3/30/20", "data": data_dict})  # insert into DB
+
+
+x = datetime.datetime.now()
+
+current_date = x.strftime("%D")
+
+col.insert_one({"index": "csse-all-confirmed", "current_date": current_date, "data": data_dict})  # insert into DB
 
 print('inserted data')
