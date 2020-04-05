@@ -1,4 +1,4 @@
-python ./scripts/utils/reset-csse.py
+python ./reset-csse-db.py
 python ./scripts/csse/global-confirmed-csse.py
 python ./scripts/csse/global-recovered-csse.py
 python ./scripts/csse/global-deaths-csse.py
