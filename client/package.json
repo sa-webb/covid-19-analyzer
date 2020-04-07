@@ -14,9 +14,11 @@
     "moment": "^2.24.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-query": "^1.2.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "recharts": "^1.8.5"
+    "recharts": "^1.8.5",
+    "stop-runaway-react-effects": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
